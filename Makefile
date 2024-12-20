@@ -1,9 +1,26 @@
 NAME = push_swap
-SRCS = push_swap.c push_swap_utils.c
+
+SRCS = srcs/main.c \
+	srcs/new_node.c \
+	srcs/add_front.c \
+	srcs/clear_stack.c \
+	srcs/swap_a.c \
+	srcs/swap_b.c \
+	srcs/swap_ab.c \
+	srcs/push_a.c \
+	srcs/push_b.c \
+	srcs/rotate_a.c \
+	srcs/rotate_b.c \
+	srcs/rotate_ab.c \
+	srcs/last_node.c
+
 OBJS = $(SRCS:.c=.o)
+
 LIBFT = libft/libft.a
+
 LIBFT_DIR = libft
-CFLAGS = -g -I$(LIBFT_DIR)
+
+CFLAGS = -g -I$(LIBFT_DIR) -I. -Wall -Werror -Wextra
 
 all: $(NAME)
 
