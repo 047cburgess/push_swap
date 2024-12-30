@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 18:41:58 by caburges          #+#    #+#             */
-/*   Updated: 2024/12/20 19:01:15 by caburges         ###   ########.fr       */
+/*   Created: 2024/12/20 19:14:49 by caburges          #+#    #+#             */
+/*   Updated: 2024/12/30 17:29:39 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a(t_stack *node)
+static void	push(t_stack **dest, t_stack **src)
 {
-	int	temp;
+	t_stack *temp;
 
-	if (node != NULL && node->next != NULL)
+	if (*src != NULL)
 	{
-		temp = node->nb;
-		node->nb = node->next->nb;
-		node->next->nb = temp;
+		temp = (*src)->next;
+		(*src)->next = *dest;
+		*dest = *src;
+		*src = temp;
 	}
-	printf("sa\n");
+}
+
+void	push_a(t_stack **a, t_stack **b)
+{
+	push(a, b);
+	printf("pa\n");
+}
+
+void	push_b(t_stack **a, t_stack **b)
+{
+	push(b, a);
+	printf("pb\n");
 }

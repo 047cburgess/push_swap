@@ -14,7 +14,6 @@
 
 static int	is_space(int c)
 {
-	c = c + 1;
 	return (c == 32 || (c >= 9 && c <= 13));
 }
 

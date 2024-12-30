@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_ab.c                                          :+:      :+:    :+:   */
+/*   stack_size.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 18:41:58 by caburges          #+#    #+#             */
-/*   Updated: 2024/12/20 19:11:42 by caburges         ###   ########.fr       */
+/*   Created: 2024/12/30 17:06:43 by caburges          #+#    #+#             */
+/*   Updated: 2024/12/30 17:07:58 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_ab(t_stack *a, t_stack *b)
+int	stack_size(t_stack *stack)
 {
-	int	temp;
+	int	size;
 
-	if (a != NULL && a->next != NULL)
+	size = 0;
+	while (stack != NULL)
 	{
-		temp = a->nb;
-		a->nb = a->next->nb;
-		a->next->nb = temp;
+		size++;
+		stack = stack->next;
 	}
-	if (b != NULL && b->next != NULL)
-	{
-		temp = b->nb;
-		b->nb = b->next->nb;
-		b->next->nb = temp;
-	}
-	printf("ss\n");
+	return (size);
 }

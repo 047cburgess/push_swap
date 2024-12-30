@@ -1,18 +1,16 @@
 NAME = push_swap
 
 SRCS = srcs/main.c \
+	srcs/manage_input_errors.c \
+	srcs/is_sorted.c \
 	srcs/new_node.c \
 	srcs/add_front.c \
 	srcs/clear_stack.c \
-	srcs/swap_a.c \
-	srcs/swap_b.c \
-	srcs/swap_ab.c \
-	srcs/push_a.c \
-	srcs/push_b.c \
-	srcs/rotate_a.c \
-	srcs/rotate_b.c \
-	srcs/rotate_ab.c \
-	srcs/last_node.c
+	srcs/swap.c \
+	srcs/push.c \
+	srcs/rotate.c \
+	srcs/last_node.c \
+	srcs/stack_size.c
 
 OBJS = $(SRCS:.c=.o)
 

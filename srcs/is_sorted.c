@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_a.c                                         :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 20:16:22 by caburges          #+#    #+#             */
-/*   Updated: 2024/12/20 20:25:26 by caburges         ###   ########.fr       */
+/*   Created: 2024/12/30 14:38:47 by caburges          #+#    #+#             */
+/*   Updated: 2024/12/30 14:42:53 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_a(t_stack **head)
+int	is_sorted(t_stack *stack)
 {
-	
-
+	while (stack != NULL && stack->next != NULL)
+	{
+		if (stack->nb > stack->next->nb)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }
