@@ -14,16 +14,16 @@
 
 static void	rotate(t_stack **stack)
 {
-	t_stack	*temp;
+	t_stack	*old_head;
 	t_stack	*end;
 
 	if (stack_size(*stack) > 1)
 	{
-		temp = *stack;
+		old_head = *stack;
 		end = last_node(*stack);
-		end->next = temp;
-		end->next->next = NULL;
 		*stack = (*stack)->next;
+		end->next = old_head;
+		old_head->next = NULL;
 	}
 }
 
