@@ -6,7 +6,7 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 19:14:49 by caburges          #+#    #+#             */
-/*   Updated: 2024/12/30 17:29:39 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/02 11:50:31 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 static void	push(t_stack **dest, t_stack **src)
 {
-	t_stack *temp;
+	t_stack *new_dest_head;
 
 	if (*src != NULL)
 	{
-		temp = (*src)->next;
-		(*src)->next = *dest;
-		*dest = *src;
-		*src = temp;
+		new_dest_head = *src;
+		*src = (*src)->next;
+		if (*src != NULL)
+			(*src)->prev = NULL;
+		if (*dest != NULL)
+			(*dest)->prev = new_dest_head;
+		new_dest_head->next = *dest;
+		*dest = new_dest_head;
 	}
 }
 

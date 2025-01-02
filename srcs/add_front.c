@@ -6,7 +6,7 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:18:31 by caburges          #+#    #+#             */
-/*   Updated: 2024/12/20 16:12:23 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/02 10:30:04 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,7 @@
 void	add_front(t_stack **head, t_stack *new)
 {
 	new->next = *head;
+	if (*head != NULL)
+		(*head)->prev = new;
 	*head = new;
 }

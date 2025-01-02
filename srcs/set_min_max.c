@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_node.c                                         :+:      :+:    :+:   */
+/*   set_min_max.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 15:24:07 by caburges          #+#    #+#             */
-/*   Updated: 2025/01/02 09:49:07 by caburges         ###   ########.fr       */
+/*   Created: 2025/01/02 15:19:23 by caburges          #+#    #+#             */
+/*   Updated: 2025/01/02 15:54:07 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*new_node(int nb)
+void	set_min_max(t_stack **min, t_stack **max, t_stack *head)
 {
-	t_stack	*new;
-
-	new = malloc(sizeof(t_stack));
-	if (!new)
-		return (NULL);
-	new->nb = nb;
-	new->prev = NULL;
-	new->next = NULL;
-	return (new);
+	if (head->nb > head->next->nb)
+	{
+		*min = head->next;
+		*max = head;
+	}
+	else
+	{
+		*min = head;
+		*max = head->next;
+	}
 }

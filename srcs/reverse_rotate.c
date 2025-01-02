@@ -1,50 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 17:30:43 by caburges          #+#    #+#             */
-/*   Updated: 2025/01/02 12:39:04 by caburges         ###   ########.fr       */
+/*   Created: 2025/01/02 12:02:16 by caburges          #+#    #+#             */
+/*   Updated: 2025/01/02 12:36:07 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_stack **stack)
+static void	reverse_rotate(t_stack **head)
 {
 	t_stack	*old_head;
 	t_stack	*end;
 
-	if (stack_size(*stack) > 1)
+	if (stack_size(*head) > 1)
 	{
-		old_head = *stack;
-		end = last_node(*stack);
-		*stack = (*stack)->next;
-		(*stack)->prev = NULL;
+		old_head = *head;
+		end = last_node(*head);
 		old_head->prev = end;
-		end->next = old_head;
-		old_head->next = NULL;
+		end->next = *head;
+		end->prev->next = NULL;
+		(*head)->prev = end;
+		*head = end;
+		(*head)->prev = NULL;
 	}
 }
 
-void	rotate_a(t_stack **stack)
+void	rev_rotate_a(t_stack **stack)
 {
-	rotate(stack);
-	ft_putendl_fd("ra", 1);
+	reverse_rotate(stack);
+	ft_putendl_fd("rra", 1);
 }
 
-
-void	rotate_b(t_stack **stack)
+void	rev_rotate_b(t_stack **stack)
 {
-	rotate(stack);
-	ft_putendl_fd("rb", 1);
+	reverse_rotate(stack);
+	ft_putendl_fd("rrb", 1);
 }
 
-void	rotate_ab(t_stack **a, t_stack **b)
+void	rev_rotate_ab(t_stack **a, t_stack **b)
 {
-	rotate(a);
-	rotate(b);
-	ft_putendl_fd("rr", 1);
+	reverse_rotate(a);
+	reverse_rotate(b);
+	ft_putendl_fd("rrr", 1);
 }

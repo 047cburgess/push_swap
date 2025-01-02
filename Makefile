@@ -9,8 +9,12 @@ SRCS = srcs/main.c \
 	srcs/swap.c \
 	srcs/push.c \
 	srcs/rotate.c \
+	srcs/reverse_rotate.c \
 	srcs/last_node.c \
-	srcs/stack_size.c
+	srcs/stack_size.c \
+	srcs/sort.c \
+	srcs/print_stacks.c \
+	srcs/set_min_max.c
 
 OBJS = $(SRCS:.c=.o)
 

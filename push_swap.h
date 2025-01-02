@@ -6,7 +6,7 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 18:43:16 by caburges          #+#    #+#             */
-/*   Updated: 2024/12/30 17:42:28 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/02 15:53:15 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct t_stack
 {
 	int	nb;
+	struct t_stack	*prev;
 	struct t_stack	*next;
 }	t_stack;
 
@@ -40,8 +41,17 @@ void	push_b(t_stack **a, t_stack **b);
 void	rotate_a(t_stack **stack);
 void	rotate_b(t_stack **stack);
 void	rotate_ab(t_stack **a, t_stack **b);
+void	rev_rotate_a(t_stack **stack);
+void	rev_rotate_b(t_stack **stack);
+void	rev_rotate_ab(t_stack **a, t_stack **b);
+
+// Algos
+void	sort_three(t_stack **head);
+void	big_sort(t_stack **a, t_stack **b);
 
 // Helpers
 int	is_sorted(t_stack *stack);
 int	stack_size(t_stack *stack);
+void	set_min_max(t_stack **min, t_stack **max, t_stack *head);
+void	print_stacks(t_stack *a, t_stack *b);
 #endif
