@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	print_stacks(t_stack *a, t_stack *b)
+void	print_stacks(t_node *a, t_node *b)
 {
 	printf("a (%s) (stack size: %i)\n\t", is_sorted(a) ? "sorted" : "not sorted", stack_size(a));
 	while (a != NULL)

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	add_front(t_stack **head, t_stack *new)
+void	add_front(t_node **head, t_node *new)
 {
 	new->next = *head;
 	if (*head != NULL)

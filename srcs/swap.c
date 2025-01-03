@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	swap(t_stack *node)
+static void	swap(t_node *node)
 {
 	int	temp;
 
@@ -24,19 +24,19 @@ static void	swap(t_stack *node)
 	}
 }
 
-void	swap_a(t_stack *node)
+void	swap_a(t_node *node)
 {
 	swap(node);
 	printf("sa\n");
 }
 
-void	swap_b(t_stack *node)
+void	swap_b(t_node *node)
 {
 	swap(node);
 	printf("sb\n");
 }
 
-void	swap_ab(t_stack *a, t_stack *b)
+void	swap_ab(t_node *a, t_node *b)
 {
 	swap(a);
 	swap(b);

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_stack	*last_node(t_stack *stack)
+t_node	*last_node(t_node *stack)
 {
 	while (stack && stack->next != NULL)
 		stack = stack->next;

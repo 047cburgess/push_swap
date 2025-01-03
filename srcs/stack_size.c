@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	stack_size(t_stack *stack)
+int	stack_size(t_node *stack)
 {
 	int	size;
 

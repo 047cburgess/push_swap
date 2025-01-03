@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	set_min_max(t_stack **min, t_stack **max, t_stack *head)
+void	set_min_max(t_node **min, t_node **max, t_node *head)
 {
 	if (head->nb > head->next->nb)
 	{

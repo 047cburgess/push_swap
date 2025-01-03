@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_node.c                                         :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 15:24:07 by caburges          #+#    #+#             */
-/*   Updated: 2025/01/02 09:49:07 by caburges         ###   ########.fr       */
+/*   Created: 2024/11/14 12:23:20 by caburges          #+#    #+#             */
+/*   Updated: 2024/11/14 12:29:28 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_node	*new_node(int nb)
+static int	is_space(int c)
 {
-	t_node	*new;
+	return (c == 32 || (c >= 9 && c <= 13));
+}
 
-	new = malloc(sizeof(t_node));
-	if (!new)
-		return (NULL);
-	new->nb = nb;
-	new->prev = NULL;
-	new->next = NULL;
-	return (new);
+long	ft_atol(const char *nptr)
+{
+	long	result;
+	int	sign;
+
+	result = 0;
+	sign = 1;
+	while (is_space(*nptr))
+		nptr++;
+	if (*nptr == '+' || *nptr == '-')
+	{
+		if (*nptr == '-')
+			sign = -sign;
+		nptr++;
+	}
+	while (ft_isdigit(*nptr))
+	{
+		result = (result * 10) + (*nptr - 48);
+		nptr++;
+	}
+	return (result * sign);
 }

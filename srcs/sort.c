@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	sort_three(t_stack **head)
+void	sort_three(t_node **head)
 {
 	int	nums[3];
 
@@ -37,46 +37,19 @@ void	sort_three(t_stack **head)
 		rev_rotate_a(head);
 }
 
-void	big_sort(t_stack **a, t_stack **b)
+void	big_sort(t_node **a, t_node **b, int a_size)
 {
-	t_stack	*min;
-	t_stack	*max;
+	t_node	*min;
+	t_node	*max;
 
 	// Push first 2 into stack b
 	push_b(a, b);
 	push_b(a, b);
 	set_min_max(&min, &max, *b);
-	if ((*b)->nb < (*b)->next->nb)
-		swap_b(*b);
 
 	// Push to B in descending order until 3 remain in A
-	while (stack_size(*a) > 3)
+	while (a_size > 3)
 	{
-		// if it's the new max or min, push it and make sure max on top
-		if ((*a)->nb > max->nb || (*a)->nb < min->nb)
-		{
-			push_b(a, b);
-			if ((*b)->nb < max->nb)
-			{
-				rotate_b(b);
-				min = *b;
-			}
-			else
-				max = *b;
-		}
-		else
-		{
-			while ((*b)->nb > (*a)->nb)
-			{
-				rotate_b(b);
-			}
-			push_b(a, b);
-			while ((*b) != max)
-				rotate_b(b);
-		}
-	}
-	// Push back to A in the right place
-	sort_three(a);
 
 	print_stacks(*a, *b);
 }

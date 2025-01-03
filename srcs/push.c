@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-static void	push(t_stack **dest, t_stack **src)
+static void	push(t_node **dest, t_node **src)
 {
-	t_stack *new_dest_head;
+	t_node *new_dest_head;
 
 	if (*src != NULL)
 	{
@@ -29,13 +29,13 @@ static void	push(t_stack **dest, t_stack **src)
 	}
 }
 
-void	push_a(t_stack **a, t_stack **b)
+void	push_a(t_node **a, t_node **b)
 {
 	push(a, b);
 	printf("pa\n");
 }
 
-void	push_b(t_stack **a, t_stack **b)
+void	push_b(t_node **a, t_node **b)
 {
 	push(b, a);
 	printf("pb\n");

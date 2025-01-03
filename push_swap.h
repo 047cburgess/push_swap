@@ -15,43 +15,58 @@
 
 # include <stdio.h>
 # include "libft/libft.h"
+# include <limits.h>
 
 // Stacks shit
-typedef struct t_stack
+typedef struct s_node
 {
 	int	nb;
-	struct t_stack	*prev;
-	struct t_stack	*next;
+	int	index;
+	int	push_cost;
+	struct s_node	*prev;
+	struct s_node	*next;
+}	t_node;
+
+typedef struct s_stack
+{
+	int	min;
+	int	max;
+	int	size;
+	t_node	*head;
 }	t_stack;
 
-t_stack	*new_node(int nb);
-void	add_front(t_stack **head, t_stack *new);
-void	clear_stack(t_stack **stack);
-t_stack *last_node(t_stack *stack);
+t_node	*new_node(int nb);
+void	add_front(t_node **head, t_node *new);
+void	clear_stack(t_node **stack);
+t_node *last_node(t_node *stack);
+void	build_stack(t_node **stack, char **av, int ac);
 
 // Error management
 int	initial_errors_found(int ac, char **av);
+int	not_valid(long nb, char *str);
+int	duplicate_found(t_node *stack, int nb);
+void	ft_exit(t_node **stack);
 
 // Sort Operations
-void	swap_a(t_stack *node);
-void	swap_b(t_stack *node);
-void	swap_ab(t_stack *a, t_stack *b);
-void	push_a(t_stack **a, t_stack **b);
-void	push_b(t_stack **a, t_stack **b);
-void	rotate_a(t_stack **stack);
-void	rotate_b(t_stack **stack);
-void	rotate_ab(t_stack **a, t_stack **b);
-void	rev_rotate_a(t_stack **stack);
-void	rev_rotate_b(t_stack **stack);
-void	rev_rotate_ab(t_stack **a, t_stack **b);
+void	swap_a(t_node *node);
+void	swap_b(t_node *node);
+void	swap_ab(t_node *a, t_node *b);
+void	push_a(t_node **a, t_node **b);
+void	push_b(t_node **a, t_node **b);
+void	rotate_a(t_node **stack);
+void	rotate_b(t_node **stack);
+void	rotate_ab(t_node **a, t_node **b);
+void	rev_rotate_a(t_node **stack);
+void	rev_rotate_b(t_node **stack);
+void	rev_rotate_ab(t_node **a, t_node **b);
 
 // Algos
-void	sort_three(t_stack **head);
-void	big_sort(t_stack **a, t_stack **b);
+void	sort_three(t_node **head);
+void	big_sort(t_node **a, t_node **b, int size);
 
 // Helpers
-int	is_sorted(t_stack *stack);
-int	stack_size(t_stack *stack);
-void	set_min_max(t_stack **min, t_stack **max, t_stack *head);
-void	print_stacks(t_stack *a, t_stack *b);
+int	is_sorted(t_node *stack);
+int	stack_size(t_node *stack);
+void	set_min_max(t_node **min, t_node **max, t_node *head);
+void	print_stacks(t_node *a, t_node *b);
 #endif

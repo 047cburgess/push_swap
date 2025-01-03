@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void	clear_stack(t_stack **head)
+void	clear_stack(t_node **head)
 {
-	t_stack	*temp;
+	t_node	*temp;
 
 	while (*head != NULL)
 	{

@@ -12,12 +12,57 @@
 
 #include "push_swap.h"
 
-int	initial_errors_found(int ac, char **av)
+static int	is_sign(char c)
 {
-	ac = ac - 1;
-	av = av + 1;
+	return (c == '+' || c == '-');
+}
+
+int	not_valid(long nb, char *str)
+{
+	char	*temp;
+
+	temp = str;
+	while (*temp != '\0')
+	{
+		if (!ft_is_digit(*temp) && (temp != str)
+				return (1);
+		temp++;
+	}
+	if (nb < INT_MIN || nb > INT_MAX)
+		return (1);
+	if (nb == 0 && (!real_zero(str))
+		return (1);
 	return (0);
-	// args not integer
-	// args bigger than integer
-	// duplicate numbers
+}
+
+static int	real_zero(char *str)
+{
+	int	len;
+
+	len = ft_strlen(str);
+	if ((len == 1) && (str[0] == '0'))
+		return (1);
+	else if ((len == 2) && (is_sign(str[0])) && (str[1] == '0'))
+		return (1);
+	else 
+		return (0);
+}	
+
+
+int	duplicate_found(t_node *stack, int nb)
+{
+	while (stack != NULL)
+	{
+		if (stack->nb == nb)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
+void	ft_exit(t_node **stack)
+{
+	clear_list(stack);
+	ft_putendl_fd("Error", 2);
+	exit(1);
 }
