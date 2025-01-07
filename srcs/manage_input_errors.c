@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+static int	real_zero(char *str);
 
 static int	is_sign(char c)
 {
@@ -24,13 +25,14 @@ int	not_valid(long nb, char *str)
 	temp = str;
 	while (*temp != '\0')
 	{
-		if (!ft_is_digit(*temp) && (temp != str)
-				return (1);
+		if (!ft_isdigit(*temp) && (temp != str))
+			return (1);
 		temp++;
 	}
 	if (nb < INT_MIN || nb > INT_MAX)
 		return (1);
-	if (nb == 0 && (!real_zero(str))
+	if (nb == 0 && !real_zero(str))
+
 		return (1);
 	return (0);
 }
@@ -62,7 +64,7 @@ int	duplicate_found(t_node *stack, int nb)
 
 void	ft_exit(t_node **stack)
 {
-	clear_list(stack);
+	clear_stack(stack);
 	ft_putendl_fd("Error", 2);
 	exit(1);
 }

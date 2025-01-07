@@ -22,6 +22,7 @@ typedef struct s_node
 {
 	int	nb;
 	int	index;
+	struct s_node	*target;
 	int	push_cost;
 	struct s_node	*prev;
 	struct s_node	*next;
@@ -62,11 +63,16 @@ void	rev_rotate_ab(t_node **a, t_node **b);
 
 // Algos
 void	sort_three(t_node **head);
-void	big_sort(t_node **a, t_node **b, int size);
+void	big_sort(t_node **a, t_node **b, int a_size);
 
 // Helpers
 int	is_sorted(t_node *stack);
 int	stack_size(t_node *stack);
 void	set_min_max(t_node **min, t_node **max, t_node *head);
 void	print_stacks(t_node *a, t_node *b);
+void	map_current_index(t_node *a, t_node *b);
+void	assign_target_nodes(t_node *a, t_node *b, t_node **min, t_node **max);
+void	calculate_push_cost(t_node *node, int a_size, int b_size);
+void	execute_push(t_node *node, t_node **a, t_node **b, int a_size, int b_size);
+
 #endif

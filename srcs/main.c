@@ -12,29 +12,26 @@
 
 #include "push_swap.h"
 
-
-
 int	main(int ac, char **av)
 {
-	t_node	*stack_a;
-	t_node	*stack_b;
-	int	size;
+	t_stack	a;
+	t_stack	b;
 
-	stack_a = NULL;
-	stack_b = NULL;
+	a.head = NULL;
+	b.head = NULL;
 	if (ac == 1)
 		return (1);
-	build_stack(&stack_a, av, ac);
-	size = stack_size(stack_a);
-	if (!is_sorted(stack_a))
+	build_stack(&a.head, av, ac);
+	a.size = stack_size(a.head);
+	if (!is_sorted(a.head))
 	{
-		if (size == 2)
-			swap_a(stack_a);
-		else if (size == 3)
-			sort_three(&stack_a);
+		if (a.size == 2)
+			swap_a(a.head);
+		else if (a.size == 3)
+			sort_three(&a.head);
 		else
-			big_sort(&stack_a, &stack_b, size);
+			big_sort(&a.head, &b.head, a.size);
 	}
-	is_sorted(stack_a) ? ft_putendl_fd("OK", 1) : ft_putendl_fd("Error", 2);
-	clear_stack(&stack_a);
+	print_stacks(a.head, b.head);
+	clear_stack(&a.head);
 }

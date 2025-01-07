@@ -1,6 +1,7 @@
 NAME = push_swap
 
 SRCS = srcs/main.c \
+       srcs/build_stack.c \
 	srcs/manage_input_errors.c \
 	srcs/is_sorted.c \
 	srcs/new_node.c \
@@ -13,6 +14,7 @@ SRCS = srcs/main.c \
 	srcs/last_node.c \
 	srcs/stack_size.c \
 	srcs/sort.c \
+	srcs/sort_utils.c \
 	srcs/print_stacks.c \
 	srcs/set_min_max.c
 
