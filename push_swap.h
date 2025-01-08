@@ -71,8 +71,9 @@ int	stack_size(t_node *stack);
 void	set_min_max(t_node **min, t_node **max, t_node *head);
 void	print_stacks(t_node *a, t_node *b);
 void	map_current_index(t_node *a, t_node *b);
-void	assign_target_nodes(t_node *a, t_node *b, t_node **min, t_node **max);
+void	assign_target_nodes(t_node *a, t_node *b);
+void	assign_target_nodes_end(t_node *a, t_node *b);
 void	calculate_push_cost(t_node *node, int a_size, int b_size);
-void	execute_push(t_node *node, t_node **a, t_node **b, int a_size, int b_size);
-
+void	bring_right_nodes_to_top(t_node *node, t_node **a, t_node **b, int a_size, int b_size);
+void	bring_min_to_top(t_node **head, int size);
 #endif

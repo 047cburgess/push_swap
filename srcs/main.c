@@ -14,24 +14,30 @@
 
 int	main(int ac, char **av)
 {
-	t_stack	a;
-	t_stack	b;
+	t_node	*a;
+	t_node	*b;
+	int	a_size;
 
-	a.head = NULL;
-	b.head = NULL;
+	a = NULL;
+	b = NULL;
 	if (ac == 1)
 		return (1);
-	build_stack(&a.head, av, ac);
-	a.size = stack_size(a.head);
-	if (!is_sorted(a.head))
+	// NEED TO ADD SPLIT FOR MANAGING THE CHECKER
+	build_stack(&a, av, ac);
+	a_size = stack_size(a);
+	if (!is_sorted(a))
 	{
-		if (a.size == 2)
-			swap_a(a.head);
-		else if (a.size == 3)
-			sort_three(&a.head);
+		if (a_size == 2)
+			swap_a(a);
+		else if (a_size == 3)
+			sort_three(&a);
 		else
-			big_sort(&a.head, &b.head, a.size);
+			big_sort(&a, &b, a_size);
 	}
-	print_stacks(a.head, b.head);
-	clear_stack(&a.head);
+	if (is_sorted(a))
+		printf("OK\n");
+	else
+		printf("KO\n");
+
+	clear_stack(&a);
 }

@@ -18,10 +18,6 @@ void	print_stacks(t_node *a, t_node *b)
 	while (a != NULL)
 	{
 		printf("%i ", a->nb);
-		if (a->prev != NULL)
-			printf("(prev: %i), ", a->prev->nb);
-		if (a->prev == NULL)
-			printf("(prev: NULL), ");
 		a = a->next;
 	}
 	printf("NULL");
@@ -31,10 +27,6 @@ void	print_stacks(t_node *a, t_node *b)
 	while (b != NULL)
 	{
 		printf("%i ", b->nb);
-		if (b->prev != NULL)
-			printf("(prev: %i), ", b->prev->nb);
-		if (b->prev == NULL)
-			printf("(prev: NULL), ");
 		b = b->next;
 	}
 	printf("NULL");

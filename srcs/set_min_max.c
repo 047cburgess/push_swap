@@ -14,6 +14,21 @@
 
 void	set_min_max(t_node **min, t_node **max, t_node *head)
 {
+	*min = head;
+	*max = head;
+	while (head != NULL)
+	{
+		if (head->nb < (*min)->nb)
+			*min = head;
+		if (head->nb > (*max)->nb)
+			*max = head;
+		head = head->next;
+	}
+}
+
+/*void	set_min_max(t_node **min, t_node **max, t_node *head)
+{
+
 	if (head->nb > head->next->nb)
 	{
 		*min = head->next;
@@ -24,4 +39,4 @@ void	set_min_max(t_node **min, t_node **max, t_node *head)
 		*min = head;
 		*max = head->next;
 	}
-}
+}*/
