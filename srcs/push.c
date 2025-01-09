@@ -6,7 +6,7 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 19:14:49 by caburges          #+#    #+#             */
-/*   Updated: 2025/01/02 11:50:31 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/09 17:20:19 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	push(t_node **dest, t_node **src)
 {
-	t_node *new_dest_head;
+	t_node	*new_dest_head;
 
 	if (*src != NULL)
 	{
@@ -32,11 +32,11 @@ static void	push(t_node **dest, t_node **src)
 void	push_a(t_node **a, t_node **b)
 {
 	push(a, b);
-	printf("pa\n");
+	ft_putendl_fd("pa", 1);
 }
 
 void	push_b(t_node **a, t_node **b)
 {
 	push(b, a);
-	printf("pb\n");
+	ft_putendl_fd("pb", 1);
 }

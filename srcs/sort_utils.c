@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/09 17:23:02 by caburges          #+#    #+#             */
+/*   Updated: 2025/01/09 17:23:43 by caburges         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 //OK
@@ -54,7 +66,7 @@ void	assign_target_nodes_end(t_node *a, t_node *b)
 	t_node	*min;
 	t_node	*max;
 
-	set_min_max(&min, &max, a);	
+	set_min_max(&min, &max, a);
 	while (b != NULL)
 	{
 		current_target = max;
@@ -95,49 +107,9 @@ void	calculate_push_cost(t_node *node, int a_size, int b_size)
 		node->push_cost = (a_size - node->index) + (node->target->index);
 }
 
-void	bring_right_nodes_to_top(t_node *node, t_node **a, t_node **b, int a_size, int b_size)
+int	above_med(int index, int stack_size)
 {
-	int	i;
-
-	i = 0;
-	if ((node->index < a_size / 2) && (node->target->index < b_size / 2))
-	{
-		while (i < node->index && i < node->target->index)
-		{
-			rotate_ab(a, b);
-			i++;
-		}
-		while (*a != node)
-			rotate_a(a);
-		while (*b != node->target)
-			rotate_b(b);
-	}
-	else if ((node->index > a_size / 2) && (node->target->index > b_size / 2))
-	{
-		while ((i < a_size - node->index) && (i < b_size - node->target->index))
-		{
-			rev_rotate_ab(a, b);
-			i++;
-		}
-		while (*a != node)
-			rev_rotate_a(a);
-		while (*b != node->target)
-			rev_rotate_b(b);
-	}
-	else if ((node->index < a_size / 2) && (node->target->index > b_size / 2))
-	{
-		while (*a != node)
-			rotate_a(a);
-		while (*b != node->target)
-			rev_rotate_b(b);
-	}
-	else
-	{
-		while (*a != node)
-			rev_rotate_a(a);
-		while (*b != node->target)
-			rotate_b(b);
-	}
+	return (index < stack_size / 2);
 }
 
 void	bring_right_nodes_to_top_end(t_node *node, t_node **a, t_node **b, int a_size, int b_size)
@@ -189,13 +161,17 @@ void	bring_min_to_top(t_node **head, int size)
 {
 	t_node	*min;
 	t_node	*trav;
+	int		i;
 
 	min = *head;
 	trav = *head;
+	i = 0;
 	while (trav != NULL)
 	{
 		if (trav->nb < min->nb)
 			min = trav;
+		trav->index = i;
+		i++;
 		trav = trav->next;
 	}
 	if (min->index < size / 2)
@@ -209,4 +185,3 @@ void	bring_min_to_top(t_node **head, int size)
 			rev_rotate_a(head);
 	}
 }
-

@@ -6,7 +6,7 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:30:43 by caburges          #+#    #+#             */
-/*   Updated: 2025/01/02 12:39:04 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/09 17:20:49 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	rotate_a(t_node **stack)
 	rotate(stack);
 	ft_putendl_fd("ra", 1);
 }
-
 
 void	rotate_b(t_node **stack)
 {

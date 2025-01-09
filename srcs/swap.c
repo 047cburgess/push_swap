@@ -6,7 +6,7 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 18:41:58 by caburges          #+#    #+#             */
-/*   Updated: 2024/12/30 17:21:01 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/09 12:58:00 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@ static void	swap(t_node *node)
 void	swap_a(t_node *node)
 {
 	swap(node);
-	printf("sa\n");
+	ft_putendl_fd("sa", 1);
 }
 
 void	swap_b(t_node *node)
 {
 	swap(node);
-	printf("sb\n");
+	ft_putendl_fd("sb", 1);
 }
 
 void	swap_ab(t_node *a, t_node *b)
 {
 	swap(a);
 	swap(b);
-	printf("ss\n");
+	ft_putendl_fd("ss", 1);
 }

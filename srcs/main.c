@@ -6,7 +6,7 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:18:49 by caburges          #+#    #+#             */
-/*   Updated: 2025/01/02 15:48:58 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/09 17:17:25 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int ac, char **av)
 {
 	t_node	*a;
 	t_node	*b;
-	int	a_size;
+	int		a_size;
 
 	a = NULL;
 	b = NULL;
@@ -33,10 +33,5 @@ int	main(int ac, char **av)
 		else
 			big_sort(&a, &b, a_size);
 	}
-	if (is_sorted(a))
-		printf("OK\n");
-	else
-		printf("KO\n");
-
 	clear_stack(&a);
 }

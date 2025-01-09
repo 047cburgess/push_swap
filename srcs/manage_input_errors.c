@@ -6,11 +6,12 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 13:48:50 by caburges          #+#    #+#             */
-/*   Updated: 2024/12/30 14:37:41 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/09 17:19:33 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 static int	real_zero(char *str);
 
 static int	is_sign(char c)
@@ -32,7 +33,6 @@ int	not_valid(long nb, char *str)
 	if (nb < INT_MIN || nb > INT_MAX)
 		return (1);
 	if (nb == 0 && !real_zero(str))
-
 		return (1);
 	return (0);
 }
@@ -46,10 +46,9 @@ static int	real_zero(char *str)
 		return (1);
 	else if ((len == 2) && (is_sign(str[0])) && (str[1] == '0'))
 		return (1);
-	else 
+	else
 		return (0);
 }	
-
 
 int	duplicate_found(t_node *stack, int nb)
 {
