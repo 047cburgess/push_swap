@@ -1,12 +1,6 @@
 #include "push_swap.h"
 
 //OK
-int	new_min_or_max(int nb, int min_nb, int max_nb)
-{
-	return (nb < min_nb || nb > max_nb);
-}
-
-//OK
 void	map_current_index(t_node *a, t_node *b)
 {
 	int	i;
@@ -27,7 +21,6 @@ void	map_current_index(t_node *a, t_node *b)
 	}
 }
 
-//OK ?
 void	assign_target_nodes(t_node *a, t_node *b)
 {
 	t_node	*b_trav;
@@ -144,6 +137,51 @@ void	bring_right_nodes_to_top(t_node *node, t_node **a, t_node **b, int a_size, 
 			rev_rotate_a(a);
 		while (*b != node->target)
 			rotate_b(b);
+	}
+}
+
+void	bring_right_nodes_to_top_end(t_node *node, t_node **a, t_node **b, int a_size, int b_size)
+{
+	int	i;
+
+	i = 0;
+	if ((node->index < a_size / 2) && (node->target->index < b_size / 2))
+	{
+		while (i < node->index && i < node->target->index)
+		{
+			rotate_ab(b, a);
+			i++;
+		}
+		while (*a != node)
+			rotate_b(a);
+		while (*b != node->target)
+			rotate_a(b);
+	}
+	else if ((node->index > a_size / 2) && (node->target->index > b_size / 2))
+	{
+		while ((i < a_size - node->index) && (i < b_size - node->target->index))
+		{
+			rev_rotate_ab(b, a);
+			i++;
+		}
+		while (*a != node)
+			rev_rotate_b(a);
+		while (*b != node->target)
+			rev_rotate_a(b);
+	}
+	else if ((node->index < a_size / 2) && (node->target->index > b_size / 2))
+	{
+		while (*a != node)
+			rotate_b(a);
+		while (*b != node->target)
+			rev_rotate_a(b);
+	}
+	else
+	{
+		while (*a != node)
+			rev_rotate_b(a);
+		while (*b != node->target)
+			rotate_a(b);
 	}
 }
 

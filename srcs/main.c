@@ -22,7 +22,6 @@ int	main(int ac, char **av)
 	b = NULL;
 	if (ac == 1)
 		return (1);
-	// NEED TO ADD SPLIT FOR MANAGING THE CHECKER
 	build_stack(&a, av, ac);
 	a_size = stack_size(a);
 	if (!is_sorted(a))

@@ -89,7 +89,7 @@ void	push_cheapest_to_a(t_node **a, t_node **b)
 			cheapest = b_trav;
 		b_trav = b_trav->next;
 	}
-	bring_right_nodes_to_top(cheapest, b, a, b_size, a_size);
+	bring_right_nodes_to_top_end(cheapest, b, a, b_size, a_size);
 	push_a(a, b);
 }
 
@@ -118,5 +118,4 @@ void	big_sort(t_node **a, t_node **b, int a_size)
 		a_size++;
 	}
 	bring_min_to_top(a, a_size);
-
 }
