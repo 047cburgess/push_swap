@@ -6,14 +6,13 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 18:43:16 by caburges          #+#    #+#             */
-/*   Updated: 2025/01/02 15:53:15 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/09 19:24:10 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
 # include "libft/libft.h"
 # include <limits.h>
 
@@ -27,14 +26,6 @@ typedef struct s_node
 	struct s_node	*prev;
 	struct s_node	*next;
 }	t_node;
-
-typedef struct s_stack
-{
-	int	min;
-	int	max;
-	int	size;
-	t_node	*head;
-}	t_stack;
 
 t_node	*new_node(int nb);
 void	add_front(t_node **head, t_node *new);
@@ -74,7 +65,8 @@ void	map_current_index(t_node *a, t_node *b);
 void	assign_target_nodes(t_node *a, t_node *b);
 void	assign_target_nodes_end(t_node *a, t_node *b);
 void	calculate_push_cost(t_node *node, int a_size, int b_size);
-void	bring_right_nodes_to_top(t_node *node, t_node **a, t_node **b, int a_size, int b_size);
-void	bring_right_nodes_to_top_end(t_node *node, t_node **a, t_node **b, int a_size, int b_size);
+void	bring_right_nodes_to_top(t_node *node, t_node **a, t_node **b);
+void	bring_right_nodes_to_top_end(t_node *node, t_node **a, t_node **b);
 void	bring_min_to_top(t_node **head, int size);
+int	above_med(int index, int stack_size);
 #endif

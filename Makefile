@@ -16,7 +16,10 @@ SRCS = srcs/main.c \
 	srcs/sort.c \
 	srcs/sort_utils.c \
 	srcs/print_stacks.c \
-	srcs/set_min_max.c
+	srcs/set_min_max.c \
+	srcs/bring_nodes_to_top.c \
+	srcs/bring_nodes_to_top_end.c \
+	srcs/above_med.c
 
 OBJS = $(SRCS:.c=.o)
 

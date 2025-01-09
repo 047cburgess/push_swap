@@ -6,7 +6,7 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 14:35:57 by caburges          #+#    #+#             */
-/*   Updated: 2025/01/09 15:37:28 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/09 19:19:06 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,11 @@ void	push_cheapest_to_a(t_node **a, t_node **b)
 {	
 	t_node	*cheapest;
 	t_node	*b_trav;
-	int	a_size = stack_size(*a);
-	int	b_size = stack_size(*b);
+	int	a_size;
+	int	b_size;
 
+	b_size = stack_size(*b);
+	a_size = stack_size(*a);
 	map_current_index(*a, *b);
 	assign_target_nodes_end(*a, *b);
 	b_trav = *b;
@@ -92,7 +94,7 @@ void	push_cheapest_to_a(t_node **a, t_node **b)
 			cheapest = b_trav;
 		b_trav = b_trav->next;
 	}
-	bring_right_nodes_to_top_end(cheapest, b, a, b_size, a_size);
+	bring_right_nodes_to_top_end(cheapest, a, b);
 	push_a(a, b);
 }
 
