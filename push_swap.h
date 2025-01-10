@@ -6,7 +6,7 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 18:43:16 by caburges          #+#    #+#             */
-/*   Updated: 2025/01/09 19:24:10 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/10 14:57:06 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "libft/libft.h"
 # include <limits.h>
+# include <stdio.h>
+# include <stdlib.h>
 
 // Stacks shit
 typedef struct s_node

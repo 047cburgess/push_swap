@@ -6,7 +6,7 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:43:31 by caburges          #+#    #+#             */
-/*   Updated: 2025/01/09 17:14:20 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/10 18:02:56 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	bring_right_nodes_to_top(t_node *node, t_node **a, t_node **b)
 
 	a_size = stack_size(*a);
 	b_size = stack_size(*b);
-	if (above_med(node->index, a_size)
+	if (above_med(node->index, a_size) 
 		&& above_med(node->target->index, b_size))
 		rotate_both(node, a, b);
 	else if (!above_med(node->index, a_size)

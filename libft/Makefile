@@ -6,7 +6,7 @@
 #    By: caburges <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 13:11:03 by caburges          #+#    #+#              #
-#    Updated: 2024/11/23 21:01:39 by caburges         ###   ########.fr        #
+#    Updated: 2025/01/10 17:16:04 by caburges         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS = ft_isalpha.c \
        ft_strchr.c \
        ft_strrchr.c \
        ft_strncmp.c \
+       ft_strcmp.c \
        ft_memchr.c \
        ft_memcmp.c \
        ft_atoi.c \

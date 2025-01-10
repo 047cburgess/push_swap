@@ -6,7 +6,7 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 13:48:50 by caburges          #+#    #+#             */
-/*   Updated: 2025/01/09 17:19:33 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/10 15:03:36 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,5 @@ void	ft_exit(t_node **stack)
 {
 	clear_stack(stack);
 	ft_putendl_fd("Error", 2);
-	exit(1);
+	exit(EXIT_FAILURE);
 }
