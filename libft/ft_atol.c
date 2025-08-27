@@ -20,7 +20,7 @@ static int	is_space(int c)
 long	ft_atol(const char *nptr)
 {
 	long	result;
-	int	sign;
+	int		sign;
 
 	result = 0;
 	sign = 1;

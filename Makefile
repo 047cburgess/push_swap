@@ -5,8 +5,6 @@ SRCS = srcs/main.c \
        srcs/build_stack.c \
 	srcs/manage_input_errors.c \
 	srcs/is_sorted.c \
-	srcs/new_node.c \
-	srcs/add_front.c \
 	srcs/clear_stack.c \
 	srcs/swap.c \
 	srcs/push.c \
@@ -27,11 +25,9 @@ CHECKER_SRCS = checker_bonus/main.c \
        	srcs/build_stack.c \
 	srcs/manage_input_errors.c \
 	srcs/is_sorted.c \
-	srcs/new_node.c \
-	srcs/add_front.c \
 	srcs/clear_stack.c \
 	srcs/last_node.c \
-	srcs/stack_size.c
+	srcs/stack_size.c \
 	checker_bonus/swap.c \
 	checker_bonus/push.c \
 	checker_bonus/rotate.c \

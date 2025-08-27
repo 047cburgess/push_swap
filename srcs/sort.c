@@ -6,13 +6,12 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 14:35:57 by caburges          #+#    #+#             */
-/*   Updated: 2025/01/09 19:19:06 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/12 15:21:42 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// OK
 void	sort_three(t_node **head)
 {
 	int	n_1;
@@ -47,7 +46,7 @@ void	push_cheapest_to_b(t_node **a, t_node **b)
 	int		a_size;
 	int		b_size;
 
-    b_size = stack_size(*b);
+	b_size = stack_size(*b);
 	a_size = stack_size(*a);
 	map_current_index(*a, *b);
 	assign_target_nodes(*a, *b);
@@ -65,7 +64,7 @@ void	push_cheapest_to_b(t_node **a, t_node **b)
 			cheapest = a_trav;
 		a_trav = a_trav->next;
 	}
-	bring_right_nodes_to_top(cheapest, a, b);
+	bring_nodes_to_top(cheapest, a, b);
 	push_b(a, b);
 }
 
@@ -73,8 +72,8 @@ void	push_cheapest_to_a(t_node **a, t_node **b)
 {	
 	t_node	*cheapest;
 	t_node	*b_trav;
-	int	a_size;
-	int	b_size;
+	int		a_size;
+	int		b_size;
 
 	b_size = stack_size(*b);
 	a_size = stack_size(*a);
@@ -94,7 +93,7 @@ void	push_cheapest_to_a(t_node **a, t_node **b)
 			cheapest = b_trav;
 		b_trav = b_trav->next;
 	}
-	bring_right_nodes_to_top_end(cheapest, a, b);
+	bring_nodes_to_top_end(cheapest, a, b);
 	push_a(a, b);
 }
 

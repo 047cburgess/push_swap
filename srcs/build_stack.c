@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 
+t_node	*new_node(int nb);
+void	add_front(t_node **head, t_node *new);
+
 void	build_stack(t_node **stack, char **av, int ac)
 {
 	t_node	*node;
@@ -28,4 +31,25 @@ void	build_stack(t_node **stack, char **av, int ac)
 		add_front(stack, node);
 		ac--;
 	}
+}
+
+t_node	*new_node(int nb)
+{
+	t_node	*new;
+
+	new = malloc(sizeof(t_node));
+	if (!new)
+		return (NULL);
+	new->nb = nb;
+	new->prev = NULL;
+	new->next = NULL;
+	return (new);
+}
+
+void	add_front(t_node **head, t_node *new)
+{
+	new->next = *head;
+	if (*head != NULL)
+		(*head)->prev = new;
+	*head = new;
 }

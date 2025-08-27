@@ -6,7 +6,7 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:43:31 by caburges          #+#    #+#             */
-/*   Updated: 2025/01/10 18:02:56 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/18 13:16:08 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,8 @@
 
 static void	rotate_both(t_node *node, t_node **a, t_node **b)
 {
-	int	a_size;
-	int	b_size;
 	int	i;
 
-	a_size = stack_size(*a);
-	b_size = stack_size(*b);
 	i = 0;
 	while (i < node->index && i < node->target->index)
 	{
@@ -52,18 +48,16 @@ static void	rev_rotate_both(t_node *node, t_node **a, t_node **b)
 		rev_rotate_b(b);
 }
 
-void	bring_right_nodes_to_top(t_node *node, t_node **a, t_node **b)
+void	bring_nodes_to_top(t_node *node, t_node **a, t_node **b)
 {
 	int	a_size;
 	int	b_size;
 
 	a_size = stack_size(*a);
 	b_size = stack_size(*b);
-	if (above_med(node->index, a_size) 
-		&& above_med(node->target->index, b_size))
+	if (above_med(node->index, a_size) && above_med(node->target->index, b_size))
 		rotate_both(node, a, b);
-	else if (!above_med(node->index, a_size)
-		&& !above_med(node->target->index, b_size))
+	else if (!above_med(node->index, a_size) && !above_med(node->target->index, b_size))
 		rev_rotate_both(node, a, b);
 	else if (above_med(node->index, a_size))
 	{

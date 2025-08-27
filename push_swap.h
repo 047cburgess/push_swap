@@ -6,7 +6,7 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 18:43:16 by caburges          #+#    #+#             */
-/*   Updated: 2025/01/10 14:57:06 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/12 15:22:14 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,22 @@
 // Stacks shit
 typedef struct s_node
 {
-	int	nb;
-	int	index;
+	int				nb;
+	int				index;
 	struct s_node	*target;
-	int	push_cost;
+	int				push_cost;
 	struct s_node	*prev;
 	struct s_node	*next;
 }	t_node;
 
-t_node	*new_node(int nb);
-void	add_front(t_node **head, t_node *new);
 void	clear_stack(t_node **stack);
-t_node *last_node(t_node *stack);
+t_node	*last_node(t_node *stack);
 void	build_stack(t_node **stack, char **av, int ac);
 
 // Error management
-int	initial_errors_found(int ac, char **av);
-int	not_valid(long nb, char *str);
-int	duplicate_found(t_node *stack, int nb);
+int		initial_errors_found(int ac, char **av);
+int		not_valid(long nb, char *str);
+int		duplicate_found(t_node *stack, int nb);
 void	ft_exit(t_node **stack);
 
 // Sort Operations
@@ -59,16 +57,16 @@ void	sort_three(t_node **head);
 void	big_sort(t_node **a, t_node **b, int a_size);
 
 // Helpers
-int	is_sorted(t_node *stack);
-int	stack_size(t_node *stack);
+int		is_sorted(t_node *stack);
+int		stack_size(t_node *stack);
 void	set_min_max(t_node **min, t_node **max, t_node *head);
 void	print_stacks(t_node *a, t_node *b);
 void	map_current_index(t_node *a, t_node *b);
 void	assign_target_nodes(t_node *a, t_node *b);
 void	assign_target_nodes_end(t_node *a, t_node *b);
 void	calculate_push_cost(t_node *node, int a_size, int b_size);
-void	bring_right_nodes_to_top(t_node *node, t_node **a, t_node **b);
-void	bring_right_nodes_to_top_end(t_node *node, t_node **a, t_node **b);
+void	bring_nodes_to_top(t_node *node, t_node **a, t_node **b);
+void	bring_nodes_to_top_end(t_node *node, t_node **a, t_node **b);
 void	bring_min_to_top(t_node **head, int size);
-int	above_med(int index, int stack_size);
+int		above_med(int index, int stack_size);
 #endif

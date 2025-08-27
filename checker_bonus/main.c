@@ -6,7 +6,7 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 19:32:47 by caburges          #+#    #+#             */
-/*   Updated: 2025/01/10 17:50:12 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/12 15:30:30 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_exit_checker(t_node **a, t_node **b)
 	clear_stack(a);
 	clear_stack(b);
 	ft_putendl_fd("Error", 2);
-	exit(1);
+	exit(EXIT_FAILURE);
 }
 
 void	execute_instruction(char *instruction, t_node **a, t_node **b)
@@ -68,10 +68,10 @@ int	main(int ac, char **av)
 		free(instruction);
 		instruction = get_next_line(0);
 	}
-	if (is_sorted(a) && stack_size(b) == 0)
+	if (is_sorted(a) && (stack_size(b) == 0))
 		ft_putendl_fd("OK", 1);
 	else
-		ft_putendl_fd("KO", 2);
+		ft_putendl_fd("KO", 1);
 	clear_stack(&a);
 	clear_stack(&b);
 }

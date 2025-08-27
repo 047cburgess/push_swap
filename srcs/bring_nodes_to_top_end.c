@@ -6,7 +6,7 @@
 /*   By: caburges <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:43:31 by caburges          #+#    #+#             */
-/*   Updated: 2025/01/09 17:44:30 by caburges         ###   ########.fr       */
+/*   Updated: 2025/01/12 15:13:25 by caburges         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	rev_rotate_both(t_node *node, t_node **a, t_node **b)
 		rev_rotate_a(a);
 }
 
-void	bring_right_nodes_to_top_end(t_node *node, t_node **a, t_node **b)
+void	bring_nodes_to_top_end(t_node *node, t_node **a, t_node **b)
 {
 	int	a_size;
 	int	b_size;
