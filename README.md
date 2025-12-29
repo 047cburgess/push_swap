@@ -134,14 +134,6 @@ The program uses the following operations to manipulate the stacks:
 - `rrb` - Reverse rotate stack b (shift all elements down by 1)
 - `rrr` - `rra` and `rrb` at the same time
 
-## Error Handling
-
-The program handles various error cases and outputs `Error` to stderr for:
-- Non-integer arguments
-- Numbers outside the integer range (INT_MIN to INT_MAX)
-- Duplicate numbers
-- Invalid syntax
-
 ## Project Structure
 
 ### Source Files
